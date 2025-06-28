@@ -9,9 +9,11 @@
 
     <ng-template #loggedInBlock>
       <div class="user-menu-wrapper" (click)="toggleDropdown()">
-        <span class="user-email">{{ getUserEmail() }}</span>
-        <div class="dropdown" *ngIf="dropdownOpen">
-          <button (click)="logout()">Logout</button>
+        <div class="user-email-wrapper" [class.open]="dropdownOpen">
+          <span class="user-email">{{ getUserEmail() }}</span>
+          <div class="user-dropdown-content" *ngIf="dropdownOpen">
+            <button (click)="logout()">Logout</button>
+          </div>
         </div>
       </div>
     </ng-template>
