@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface ShortUrl {
-  id: string;
-  code: string;
-  longUrl: string;
-  createdAt: string;
-  ownerId: string;
-}
+import { ShortUrlModel } from '../../Models/ShortUrlModel'; // Adjust the import path as necessary
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +11,7 @@ export class ShourtUrlService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getAllShortUrls(): Observable<ShortUrl[]> {
-    return this.http.get<ShortUrl[]>(this.retrieveAllShortUrlsAPI);
+  getAllShortUrls(): Observable<ShortUrlModel[]> {
+    return this.http.get<ShortUrlModel[]>(this.retrieveAllShortUrlsAPI);
   }
 }

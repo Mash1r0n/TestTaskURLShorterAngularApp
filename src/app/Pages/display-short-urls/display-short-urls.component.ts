@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ShortUrl, ShourtUrlService } from '../../Services/short-url/shourt-url.service';
+import { ShourtUrlService } from '../../Services/short-url/shourt-url.service';
 import { NgFor } from '@angular/common';
+import { ShortUrlModel } from '../../Models/ShortUrlModel';
 
 @Component({
   selector: 'app-display-short-urls',
@@ -10,11 +11,11 @@ import { NgFor } from '@angular/common';
   styleUrl: './display-short-urls.component.css'
 })
 export class DisplayShortUrlsComponent {
-  receivedInfo: ShortUrl[] = [];
+  receivedInfo: ShortUrlModel[] = [];
 
   constructor(private readonly shortUrlService: ShourtUrlService) {
     this.shortUrlService.getAllShortUrls().subscribe({
-      next: (data: ShortUrl[]) => {
+      next: (data: ShortUrlModel[]) => {
         this.receivedInfo = data;
       },
       error: (error) => {
