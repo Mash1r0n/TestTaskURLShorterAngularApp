@@ -12,8 +12,9 @@
       <input type="password" id="password" name="password" [(ngModel)]="loginPassword" required />
     </div>
 
-    <div class="error-message" *ngIf="loginError">{{ loginError }}</div>
-
+    <div class="error-box" *ngIf="loginError">
+      <div class="error-message">{{ loginError }}</div>
+    </div>
     <button type="submit">Login</button>
 
     <div class="form-footer">

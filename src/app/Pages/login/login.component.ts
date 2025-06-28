@@ -22,7 +22,7 @@ export class LoginComponent {
   loginPassword = '';
   loginError = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private readonly authService: AuthService, private readonly router: Router) {}
 
   onLoginSubmit() {
     const loginModel: LoginModel = {

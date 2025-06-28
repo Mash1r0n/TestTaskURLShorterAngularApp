@@ -12,7 +12,11 @@
       <input type="password" id="password" name="password" [(ngModel)]="registerPassword" required />
     </div>
 
-    <div class="error-message" *ngIf="registerError">{{ registerError }}</div>
+    <div class="error-box" *ngIf="registerErrors.length > 0">
+      <ul>
+        <li *ngFor="let err of registerErrors">{{ err }}</li>
+      </ul>
+    </div>
 
     <button type="submit">Register</button>
 
