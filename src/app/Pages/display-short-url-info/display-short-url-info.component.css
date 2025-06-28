@@ -1,0 +1,74 @@
+.url-info-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 40px 20px 20px;
+  background: #fefefe;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.url-info-title {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #333;
+}
+
+.url-code {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+  text-align: center;
+}
+
+.url-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.url-info-row {
+  display: flex;
+  justify-content: space-between;
+  background: #fafafa;
+  padding: 10px 16px;
+  border-left: 5px solid #1976d2;
+  border-radius: 8px;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.value {
+  font-weight: 500;
+  color: #111;
+}
+
+.loading-box {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  background: transparent;
+  color: #1976d2;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #004ba0;
+}
+

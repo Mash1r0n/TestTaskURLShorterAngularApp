@@ -20,18 +20,24 @@ import { AuthService } from '../../Services/auth/auth.service';
 })
 export class DisplayShortUrlsComponent {
   receivedInfo: ShortUrlModel[] = [];
-
   isModalOpen = false;
   modalErrorMessage: string = '';
   errorMessage: string = '';
+  isLoading: boolean = true;
 
-  constructor(private readonly shortUrlService: ShourtUrlService, private readonly authService: AuthService) {
+  constructor(
+    private readonly shortUrlService: ShourtUrlService,
+    private readonly authService: AuthService) 
+  {
     this.shortUrlService.getAllShortUrls().subscribe({
       next: (data: ShortUrlModel[]) => {
         this.receivedInfo = data;
+        this.isLoading = false;
       },
       error: (error) => {
         console.error('Error fetching short URLs:', error);
+        this.errorMessage = 'Failed to load short URLs';
+        this.isLoading = false;
       }
     });
   }
@@ -66,8 +72,8 @@ export class DisplayShortUrlsComponent {
     this.modalErrorMessage = '';
   }
   
-  onView(url: ShortUrlModel): void {
-    // TODO: подключи вывод деталей
+  onView(id: string): void {
+    window.location.href = `/short-url/${id}`;
   }
 
   onDelete(code: string): void {

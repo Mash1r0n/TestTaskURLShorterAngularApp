@@ -106,3 +106,10 @@
 .btn-delete:hover {
   background-color: #c9302c;
 }
+
+.loader {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 20px;
+  color: #555;
+}

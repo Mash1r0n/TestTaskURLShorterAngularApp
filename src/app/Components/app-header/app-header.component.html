@@ -1,5 +1,5 @@
 <header class="main-header">
-  <div class="logo">URL Shorter</div>
+  <div class="logo" (click)="router.navigate([AppRouterDefinitions.ShortUrls])">URL Shorter</div>
 
   <nav class="nav-actions">
     <ng-container *ngIf="!isAuthenticated(); else loggedInBlock">

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ShortUrlModel } from '../../Models/ShortUrlModel'; // Adjust the import path as necessary
+import { ShortUrlModel } from '../../Models/ShortUrlModel';
 import { CreateShortUrlModel } from '../../Models/CreateShortUrlModel';
 import { ApiRouterDefinitions } from '../../RouterDefinitions/api.router.definitions';
 

@@ -6,11 +6,13 @@ import { LoginComponent } from './Pages/login/login.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { authGuard } from './Services/auth-guard/auth-guard.service';
 import { redirectIfAuth } from './Services/redirect-if-auth/redirect-if-auth.service';
+import { DisplayShortUrlInfoComponent } from './Pages/display-short-url-info/display-short-url-info.component';
 
 export const routes: Routes = [
   { path: AppRouterDefinitions.ShortUrls, component: DisplayShortUrlsComponent },
   { path: AppRouterDefinitions.Login, component: LoginComponent, canActivate: [redirectIfAuth] },
   { path: AppRouterDefinitions.Register, component: RegisterComponent, canActivate: [redirectIfAuth] },
+  { path: AppRouterDefinitions.ShortUrlInfo, component: DisplayShortUrlInfoComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: AppRouterDefinitions.ShortUrls, pathMatch: 'full' },
 ];
 

@@ -19,8 +19,9 @@ import { AppRouterDefinitions  } from '../../RouterDefinitions/app.router.defini
 })
 export class AppHeaderComponent {
   dropdownOpen = false;
+  public AppRouterDefinitions = AppRouterDefinitions;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, public router: Router) {}
 
   isAuthenticated(): boolean {
     return this.auth.isAuthenticated();
