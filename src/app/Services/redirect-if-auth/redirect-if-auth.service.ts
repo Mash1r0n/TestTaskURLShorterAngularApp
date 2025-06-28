@@ -4,14 +4,14 @@ import { AuthService } from '../auth/auth.service';
 import { of } from 'rxjs';
 import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definitions';
 
-export const authGuard = () => {
+export const redirectIfAuth = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
   const isAuth = authService.isAuthenticated();
 
-  if (!isAuth) {
-    router.navigate([AppRouterDefinitions.Login]);
+  if (isAuth) {
+    router.navigate([AppRouterDefinitions.ShortUrls]);
     return of(false);
   }
 

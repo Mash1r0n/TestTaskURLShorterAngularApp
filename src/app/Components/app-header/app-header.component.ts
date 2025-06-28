@@ -4,6 +4,7 @@ import { AuthService } from '../../Services/auth/auth.service'; // путь ск
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AppRouterDefinitions  } from '../../RouterDefinitions/app.router.definitions'
 
 @Component({
   selector: 'app-header',
@@ -34,7 +35,7 @@ export class AppHeaderComponent {
   logout() {
     this.auth.logout();
     this.dropdownOpen = false;
-    this.router.navigate(['/login']);
+    this.router.navigate([AppRouterDefinitions.Login]);
   }
 
   toggleDropdown() {
