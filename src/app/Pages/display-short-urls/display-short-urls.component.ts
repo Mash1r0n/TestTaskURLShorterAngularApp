@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ShourtUrlService } from '../../Services/short-url/shourt-url.service';
-import { NgFor } from '@angular/common';
 import { ShortUrlModel } from '../../Models/ShortUrlModel';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-display-short-urls',
-  imports: [NgFor],
+  imports: [
+    CommonModule
+  ],
   standalone: true,
   templateUrl: './display-short-urls.component.html',
   styleUrl: './display-short-urls.component.css'

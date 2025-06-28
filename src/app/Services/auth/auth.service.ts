@@ -31,7 +31,9 @@ export class AuthService {
 
   login(model: LoginModel): Observable<LoginResponseModel> {
     return this.http.post<LoginResponseModel>(this.loginUrl, model).pipe(
-      tap(res => this.setToken(res.token))
+      tap(res => console.log('Login response:', res)),
+      tap(res => this.setToken(res.token)),
+      tap(res => localStorage.setItem('user', JSON.stringify({ "email": model.email, "userId": res.userId, "isUserAdmin": res.isUserAdmin })))
     );
   }
 

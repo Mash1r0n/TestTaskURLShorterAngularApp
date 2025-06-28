@@ -1,3 +1,5 @@
 export enum AppRouterDefinitions {
-    ShortUrls = 'ShortUrls',
+    ShortUrls = 'shortUrls',
+    Login = 'login',
+    Register = 'register',
 }

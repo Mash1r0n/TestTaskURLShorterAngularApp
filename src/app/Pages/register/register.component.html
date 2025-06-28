@@ -1,0 +1,24 @@
+<div class="auth-wrapper">
+  <form class="auth-form" (ngSubmit)="onRegisterSubmit()" #registerForm="ngForm">
+    <h2>Register</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="registerEmail" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="registerPassword" required />
+    </div>
+
+    <div class="error-message" *ngIf="registerError">{{ registerError }}</div>
+
+    <button type="submit">Register</button>
+
+    <div class="form-footer">
+      Already have an account?
+      <a [routerLink]="['/login']">Sign In</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<header class="main-header">
+  <div class="logo">URL Shorter</div>
+
+  <nav class="nav-actions">
+    <ng-container *ngIf="!isAuthenticated(); else loggedInBlock">
+      <a routerLink="/login" class="nav-button">Sign In</a>
+      <a routerLink="/register" class="nav-button">Sign Up</a>
+    </ng-container>
+
+    <ng-template #loggedInBlock>
+      <div class="user-menu-wrapper" (click)="toggleDropdown()">
+        <span class="user-email">{{ getUserEmail() }}</span>
+        <div class="dropdown" *ngIf="dropdownOpen">
+          <button (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </ng-template>
+  </nav>
+</header>
