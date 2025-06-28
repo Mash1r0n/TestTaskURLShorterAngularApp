@@ -1,0 +1,103 @@
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+.url-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.url-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.url-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.url-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.url-info p {
+  margin: 4px 0;
+  color: #444;
+  word-break: break-all;
+  width: 100%;
+}
+
+.url-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-add {
+  background-color: #007acc;
+}
+
+.btn-add:hover {
+  background-color: #005f99;
+}
+
+.btn-view {
+  background-color: #4caf50;
+}
+
+.btn-view:hover {
+  background-color: #388e3c;
+}
+
+.btn-edit {
+  background-color: #f0ad4e;
+}
+
+.btn-edit:hover {
+  background-color: #ec971f;
+}
+
+.btn-delete {
+  background-color: #d9534f;
+}
+
+.btn-delete:hover {
+  background-color: #c9302c;
+}

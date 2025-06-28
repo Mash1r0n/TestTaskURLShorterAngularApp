@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="header">
+    <h2>📋 Short URLs</h2>
+    <button class="btn btn-add" (click)="onAddUrl()">➕ Short new URL</button>
+  </div>
+
+  <ul class="url-list">
+    <li *ngFor="let url of receivedInfo" class="url-item">
+      <div class="url-content">
+        <div class="url-actions">
+          <button class="btn btn-view" (click)="onView(url)">🔍 Review</button>
+          <button class="btn btn-delete" (click)="onDelete(url)">🗑️ Delete</button>
+        </div>
+        <div class="url-info">
+          <p><strong>🔗 Code: </strong> {{ url.code }}</p>
+          <p><strong>🌐 Long URL: </strong> {{ url.longUrl }}</p>
+          <p><strong>🕒 Created At: </strong> {{ url.createdAt }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
