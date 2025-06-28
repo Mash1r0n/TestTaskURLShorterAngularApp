@@ -1,5 +1,5 @@
-export enum AppRouterDefinitions {
-    ShortUrls = 'shortUrls',
-    Login = 'login',
-    Register = 'register',
-}
+export const AppRouterDefinitions = {
+    ShortUrls: 'shortUrls',
+    Login: 'login',
+    Register: 'register',
+} as const;

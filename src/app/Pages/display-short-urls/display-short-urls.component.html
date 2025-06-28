@@ -20,3 +20,9 @@
     </li>
   </ul>
 </div>
+
+<app-add-short-url-modal
+  *ngIf="isModalOpen"
+  (add)="onModalAdd($event)"
+  (close)="onModalClose()"
+></app-add-short-url-modal>
