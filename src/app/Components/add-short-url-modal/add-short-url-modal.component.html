@@ -1,7 +1,7 @@
 <div class="modal-backdrop" (click)="onCloseClick()"></div>
 
-<div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <h3 class="modalTitle">Enter the URL you want to shorten</h3>
+<div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle" (click)="$event.stopPropagation()">
+  <h3 id="modalTitle" class="modalTitle">Enter the URL you want to shorten</h3>
 
   <input
     type="text"

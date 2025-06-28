@@ -71,6 +71,19 @@ export class DisplayShortUrlsComponent {
     this.modalErrorMessage = '';
   }
 
+  onModalAdd(longUrl: string): void {
+    this.shortUrlService.addNewShortUrl({ longUrl }).subscribe({
+      next: (newShortUrl) => {
+        this.receivedInfo = [newShortUrl, ...this.receivedInfo];
+        this.modalErrorMessage = '';
+        this.isModalOpen = false;
+      },
+      error: (err) => {
+        this.modalErrorMessage = err?.error || 'Something went wrong';
+      }
+    });
+  }
+
   onModalClose(): void {
     this.isModalOpen = false;
     this.modalErrorMessage = '';
@@ -82,9 +95,12 @@ export class DisplayShortUrlsComponent {
 
   onDelete(code: string): void {
     this.shortUrlService.deleteShortUrlByCode(code).subscribe({
+      next: () => {
+        this.receivedInfo = this.receivedInfo.filter(url => url.code !== code);
+      },
       error: (err) => {
         this.errorMessage = err?.error || 'Something went wrong';
       }
-  });
+    });
   }
 }
