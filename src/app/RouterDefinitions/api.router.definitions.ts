@@ -5,4 +5,5 @@ export const ApiRouterDefinitions = {
   LoginUrlAPI: 'https://localhost:7290/User/login',
   RegisterUrlAPI: 'https://localhost:7290/User/register',
   RetrieveShortUrlInfoAPI: 'https://localhost:7290/ShortUrl/info?ShortUrlId=',
+  RedirectByCodeAPI: 'https://localhost:7290/',
 } as const;

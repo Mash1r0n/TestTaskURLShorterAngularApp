@@ -4,15 +4,17 @@ import { ShortUrlModel } from '../../Models/ShortUrlModel';
 import { CommonModule } from '@angular/common';
 import { AddShortUrlModalComponent } from '../../Components/add-short-url-modal/add-short-url-modal.component';
 import { FormsModule } from '@angular/forms';
-import { CreateShortUrlModel } from '../../Models/CreateShortUrlModel';
 import { AuthService } from '../../Services/auth/auth.service';
+import { RouterLink } from '@angular/router';
+import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definitions';
 
 @Component({
   selector: 'app-display-short-urls',
   imports: [
     CommonModule,
     FormsModule,
-    AddShortUrlModalComponent
+    AddShortUrlModalComponent,
+    RouterLink
   ],
   standalone: true,
   templateUrl: './display-short-urls.component.html',
@@ -24,6 +26,8 @@ export class DisplayShortUrlsComponent {
   modalErrorMessage: string = '';
   errorMessage: string = '';
   isLoading: boolean = true;
+
+  public AppRouterDefinitions = AppRouterDefinitions;
 
   constructor(
     private readonly shortUrlService: ShourtUrlService,

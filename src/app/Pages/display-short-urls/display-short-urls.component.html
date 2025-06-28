@@ -16,7 +16,10 @@
             <button class="btn btn-delete" (click)="onDelete(url.code)" [class.active]="isUserAllowedToDelete(url.ownerId)">🗑️ Delete</button>
           </div>
           <div class="url-info">
-            <p><strong>🔗 Code: </strong> {{ url.code }}</p>
+            <p>
+              <strong>🔗 Code: </strong>
+              <a [routerLink]="['/', url.code]" class="code-link">{{ url.code }}</a>
+            </p>
             <p><strong>🌐 Long URL: </strong> {{ url.longUrl }}</p>
             <p><strong>🕒 Created At: </strong> {{ url.createdAt }}</p>
           </div>

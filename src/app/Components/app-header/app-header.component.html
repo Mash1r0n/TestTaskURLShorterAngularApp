@@ -3,8 +3,8 @@
 
   <nav class="nav-actions">
     <ng-container *ngIf="!isAuthenticated(); else loggedInBlock">
-      <a routerLink="/login" class="nav-button">Sign In</a>
-      <a routerLink="/register" class="nav-button">Sign Up</a>
+      <a [routerLink]="[AppRouterDefinitions.Login]" class="nav-button">Sign In</a>
+      <a [routerLink]="[AppRouterDefinitions.Register]" class="nav-button">Sign Up</a>
     </ng-container>
 
     <ng-template #loggedInBlock>

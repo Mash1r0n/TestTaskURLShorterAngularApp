@@ -13,6 +13,10 @@ export const routes: Routes = [
   { path: AppRouterDefinitions.Login, component: LoginComponent, canActivate: [redirectIfAuth] },
   { path: AppRouterDefinitions.Register, component: RegisterComponent, canActivate: [redirectIfAuth] },
   { path: AppRouterDefinitions.ShortUrlInfo, component: DisplayShortUrlInfoComponent, canActivate: [authGuard] },
+  {
+    path: AppRouterDefinitions.RedirectUrl,
+    loadComponent: () => import('./Pages/url-redirect/url-redirect.component').then(m => m.UrlRedirectComponent)
+  },
   { path: '**', redirectTo: AppRouterDefinitions.ShortUrls, pathMatch: 'full' },
 ];
 

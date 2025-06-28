@@ -3,4 +3,5 @@ export const AppRouterDefinitions = {
     Login: 'login',
     Register: 'register',
     ShortUrlInfo: 'short-url/:id',
+    RedirectUrl: ':code',
 } as const;
