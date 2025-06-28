@@ -26,6 +26,11 @@ input[type="text"] {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modalTitle {
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .btn-add {
@@ -45,6 +50,7 @@ input[type="text"] {
 }
 
 .error-message {
+  font-family: 'Segoe UI', sans-serif;
   color: #d9534f;
   font-size: 0.875rem;
   min-height: 1.25rem;

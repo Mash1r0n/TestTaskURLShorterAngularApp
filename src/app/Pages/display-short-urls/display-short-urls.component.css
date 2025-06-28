@@ -95,7 +95,12 @@
 }
 
 .btn-delete {
+  visibility: hidden;
   background-color: #d9534f;
+}
+
+.btn-delete.active {
+  visibility: visible;
 }
 
 .btn-delete:hover {

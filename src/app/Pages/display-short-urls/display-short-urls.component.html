@@ -7,9 +7,9 @@
   <ul class="url-list">
     <li *ngFor="let url of receivedInfo" class="url-item">
       <div class="url-content">
-        <div class="url-actions">
+        <div class="url-actions" *ngIf="isUserAuthorized()">
           <button class="btn btn-view" (click)="onView(url)">🔍 Review</button>
-          <button class="btn btn-delete" (click)="onDelete(url)">🗑️ Delete</button>
+          <button class="btn btn-delete" (click)="onDelete(url.code)" [class.active]="isUserAllowedToDelete(url.ownerId)">🗑️ Delete</button>
         </div>
         <div class="url-info">
           <p><strong>🔗 Code: </strong> {{ url.code }}</p>
@@ -23,6 +23,5 @@
 
 <app-add-short-url-modal
   *ngIf="isModalOpen"
-  (add)="onModalAdd($event)"
   (close)="onModalClose()"
 ></app-add-short-url-modal>

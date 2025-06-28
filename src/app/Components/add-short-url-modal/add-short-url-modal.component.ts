@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ShourtUrlService } from '../../Services/short-url/shourt-url.service';
 
 @Component({
   selector: 'app-add-short-url-modal',
@@ -15,14 +16,23 @@ import { FormsModule } from '@angular/forms';
 export class AddShortUrlModalComponent {
   urlInput: string = '';
   
-  @Input() errorMessage: string = '';
+  errorMessage: string = '';
 
   @Output() add = new EventEmitter<string>();
   @Output() close = new EventEmitter<void>();
 
+  constructor(private shortUrlService: ShourtUrlService) {}
+
   onAddClick(): void {
-    this.add.emit(this.urlInput);
-  }
+  this.shortUrlService.addNewShortUrl({ longUrl: this.urlInput }).subscribe({
+    next: (newUrl) => {
+      this.close.emit();
+    },
+    error: (err) => {
+      this.errorMessage = err?.error || 'Something went wrong';
+    }
+  });
+}
 
   onCloseClick(): void {
     this.close.emit();

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AddShortUrlModalComponent } from '../../Components/add-short-url-modal/add-short-url-modal.component';
 import { FormsModule } from '@angular/forms';
 import { CreateShortUrlModel } from '../../Models/CreateShortUrlModel';
+import { AuthService } from '../../Services/auth/auth.service';
 
 @Component({
   selector: 'app-display-short-urls',
@@ -22,8 +23,9 @@ export class DisplayShortUrlsComponent {
 
   isModalOpen = false;
   modalErrorMessage: string = '';
+  errorMessage: string = '';
 
-  constructor(private readonly shortUrlService: ShourtUrlService) {
+  constructor(private readonly shortUrlService: ShourtUrlService, private readonly authService: AuthService) {
     this.shortUrlService.getAllShortUrls().subscribe({
       next: (data: ShortUrlModel[]) => {
         this.receivedInfo = data;
@@ -34,24 +36,29 @@ export class DisplayShortUrlsComponent {
     });
   }
 
+  getUserId(): string {
+    const user = localStorage.getItem('user');
+    console.log('User:', user);
+    return user ? JSON.parse(user).userId : '';
+  }
+
+  isUserAdmin(): boolean {
+    const user = localStorage.getItem('user');
+    console.log('User:', user);
+    return user ? JSON.parse(user).isUserAdmin : false;
+  }
+
+  isUserAuthorized(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  isUserAllowedToDelete(creatorUrlUserId: string): boolean {
+    return (this.isUserAdmin() || this.getUserId() === creatorUrlUserId) && this.isUserAuthorized();
+  }
+
   onAddUrl(): void {
     this.isModalOpen = true;
     this.modalErrorMessage = '';
-  }
-
-  onModalAdd(url: string): void {
-    const createModel: CreateShortUrlModel = { longUrl: url };
-
-    this.shortUrlService.addNewShortUrl(createModel).subscribe({
-      next: (newShortUrl) => {
-        this.receivedInfo = [newShortUrl, ...this.receivedInfo];
-        this.isModalOpen = false;
-        this.modalErrorMessage = '';
-      },
-      error: (err) => {
-        this.modalErrorMessage = err?.error?.message || 'Error adding short URL';
-      }
-    });
   }
 
   onModalClose(): void {
@@ -59,11 +66,15 @@ export class DisplayShortUrlsComponent {
     this.modalErrorMessage = '';
   }
   
-  onView(url: any): void {
+  onView(url: ShortUrlModel): void {
     // TODO: подключи вывод деталей
   }
 
-  onDelete(url: any): void {
-    // TODO: подключи удаление
+  onDelete(code: string): void {
+    this.shortUrlService.deleteShortUrlByCode(code).subscribe({
+      error: (err) => {
+        this.errorMessage = err?.error || 'Something went wrong';
+      }
+  });
   }
 }

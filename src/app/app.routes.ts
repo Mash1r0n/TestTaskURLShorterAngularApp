@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: AppRouterDefinitions.ShortUrls, component: DisplayShortUrlsComponent },
   { path: AppRouterDefinitions.Login, component: LoginComponent, canActivate: [redirectIfAuth] },
   { path: AppRouterDefinitions.Register, component: RegisterComponent, canActivate: [redirectIfAuth] },
-  { path: '**', redirectTo: AppRouterDefinitions.Register, pathMatch: 'full' },
+  { path: '**', redirectTo: AppRouterDefinitions.ShortUrls, pathMatch: 'full' },
 ];
 
 @NgModule({
