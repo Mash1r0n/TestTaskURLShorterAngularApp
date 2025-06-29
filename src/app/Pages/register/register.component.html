@@ -1,28 +1,28 @@
-<div class="auth-wrapper">
+<section class="auth-wrapper">
   <form class="auth-form" (ngSubmit)="onRegisterSubmit()" #registerForm="ngForm">
     <h2>Register</h2>
 
-    <div class="form-group">
+    <article class="form-group">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" [(ngModel)]="registerEmail" required />
-    </div>
+    </article>
 
-    <div class="form-group">
+    <article class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" [(ngModel)]="registerPassword" required />
-    </div>
+    </article>
 
-    <div class="error-box" *ngIf="registerErrors.length > 0">
+    <article class="error-box" *ngIf="registerErrors.length > 0">
       <ul>
         <li *ngFor="let err of registerErrors">{{ err }}</li>
       </ul>
-    </div>
+    </article>
 
     <button type="submit">Register</button>
 
-    <div class="form-footer">
+    <article class="form-footer">
       Already have an account?
       <a [routerLink]="['/login']">Sign In</a>
-    </div>
+    </article>
   </form>
-</div>
+</section>

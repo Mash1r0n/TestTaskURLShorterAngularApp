@@ -1,32 +1,32 @@
-<div class="container">
-  <div class="header">
+<section class="container">
+  <section class="header">
     <h2>📋 Short URLs</h2>
     <button class="btn btn-add" (click)="onAddUrl()" *ngIf="isUserAuthorized()">➕ Short new URL</button>
-  </div>
+  </section>
 
-  <div *ngIf="isLoading" class="loader">
+  <article *ngIf="isLoading" class="loader">
     ⏳ Loading your short URLs...
-  </div>
+  </article>
 
   <ul *ngIf="!isLoading" class="url-list">
     <li *ngFor="let url of receivedInfo" class="url-item">
-    <div class="url-content">
-          <div class="url-actions" *ngIf="isUserAuthorized()">
+    <section class="url-content">
+          <article class="url-actions" *ngIf="isUserAuthorized()">
             <button class="btn btn-view" (click)="onView(url.id)">🔍 Review</button>
             <button class="btn btn-delete" (click)="onDelete(url.code)" [class.active]="isUserAllowedToDelete(url.ownerId)">🗑️ Delete</button>
-          </div>
-          <div class="url-info">
+          </article>
+          <article class="url-info">
             <p>
               <strong>🔗 Code: </strong>
               <a [routerLink]="['/', url.code]" class="code-link">{{ url.code }}</a>
             </p>
             <p><strong>🌐 Long URL: </strong> {{ url.longUrl }}</p>
             <p><strong>🕒 Created At: </strong> {{ url.createdAt }}</p>
-          </div>
-        </div>
+          </article>
+    </section>
     </li>
   </ul>
-</div>
+</section>
 
 <app-add-short-url-modal
   *ngIf="isModalOpen"

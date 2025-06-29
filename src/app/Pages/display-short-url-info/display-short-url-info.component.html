@@ -1,34 +1,34 @@
-<div class="url-info-wrapper">
+<section class="url-info-wrapper">
   <a class="back-button" [routerLink]="[AppRouterDefinitions.ShortUrls]">← Back</a>
 
   <h2 class="url-info-title">🔗 Short URL Details</h2>
   <p class="url-code">📌 Code from route: <strong>{{ urlId }}</strong></p>
 
-  <div *ngIf="info; else loading" class="url-info-card">
-    <div class="url-info-row">
+  <section *ngIf="info; else loading" class="url-info-card">
+    <article class="url-info-row">
       <span class="label">👤 Owner ID:</span>
       <span class="value">{{ info.ownerId }}</span>
-    </div>
+    </article>
 
-    <div class="url-info-row">
+    <article class="url-info-row">
       <span class="label">📅 Created At:</span>
       <span class="value">{{ info.createdAt | date:'medium' }}</span>
-    </div>
+    </article>
 
-    <div class="url-info-row">
+    <article class="url-info-row">
       <span class="label">📈 Clicks:</span>
       <span class="value">{{ info.clicks }}</span>
-    </div>
+    </article>
 
-    <div class="url-info-row">
+    <article class="url-info-row">
       <span class="label">⏱️ Last Accessed:</span>
       <span class="value">
         {{ info.lastAccessedAt ? (info.lastAccessedAt | date:'medium') : 'Never accessed' }}
       </span>
-    </div>
-  </div>
+    </article>
+  </section>
 
   <ng-template #loading>
-    <div class="loading-box">⏳ Loading short URL info...</div>
+    <article class="loading-box">⏳ Loading short URL info...</article>
   </ng-template>
-</div>
+</section>

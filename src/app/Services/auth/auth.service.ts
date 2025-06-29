@@ -20,6 +20,7 @@ export class AuthService {
 
   setToken(token: string): void {
     localStorage.setItem('jwtToken', token);
+
     this.tokenSubject.next(token);
   }
 
@@ -35,6 +36,7 @@ export class AuthService {
     try {
       const decoded = jwtDecode<JwtPayload>(token);
       const now = Math.floor(Date.now() / 1000);
+
       return decoded.exp > now;
     } catch {
       return false;
@@ -44,6 +46,7 @@ export class AuthService {
   clearAuthData(): void {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('user');
+
     this.tokenSubject.next(null);
   }
 
@@ -59,10 +62,12 @@ export class AuthService {
 
   getValidAccessToken(): Observable<string | null> {
     const token = this.getToken();
+
     if (!token || !this.isTokenValid(token)) {
       this.clearAuthData();
       return of(null);
     }
+    
     return of(token);
   }
 

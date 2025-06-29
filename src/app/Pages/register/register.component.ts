@@ -17,12 +17,15 @@ import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definit
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
+
 export class RegisterComponent {
   registerEmail = '';
   registerPassword = '';
   registerErrors: string[] = [];
 
-  constructor(private readonly authService: AuthService, private readonly router: Router) {}
+  constructor(
+    private readonly authService: AuthService, 
+    private readonly router: Router) {}
 
   onRegisterSubmit() {
     const loginModel: RegisterModel = {
@@ -41,11 +44,14 @@ export class RegisterComponent {
 
         if (Array.isArray(err.error)) {
           this.registerErrors = err.error.map((e: any) => e.description);
-        } else if (typeof err.error === 'string') {
+        } 
+        else if (typeof err.error === 'string') {
           this.registerErrors = [err.error];
-        } else if (err.error?.message) {
+        } 
+        else if (err.error?.message) {
           this.registerErrors = [err.error.message];
-        } else {
+        } 
+        else {
           this.registerErrors = ['An error occurred during registration'];
         }
       }

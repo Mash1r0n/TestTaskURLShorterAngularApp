@@ -7,11 +7,11 @@ import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definit
 export const redirectIfAuth = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
-
   const isAuth = authService.isAuthenticated();
 
   if (isAuth) {
     router.navigate([AppRouterDefinitions.ShortUrls]);
+
     return of(false);
   }
 

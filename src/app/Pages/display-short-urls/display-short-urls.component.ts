@@ -20,6 +20,7 @@ import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definit
   templateUrl: './display-short-urls.component.html',
   styleUrls: ['./display-short-urls.component.css']
 })
+
 export class DisplayShortUrlsComponent {
   receivedInfo: ShortUrlModel[] = [];
   isModalOpen = false;

@@ -17,12 +17,15 @@ import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definit
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
   loginEmail = '';
   loginPassword = '';
   loginError = '';
 
-  constructor(private readonly authService: AuthService, private readonly router: Router) {}
+  constructor(
+    private readonly authService: AuthService, 
+    private readonly router: Router) {}
 
   onLoginSubmit() {
     const loginModel: LoginModel = {
@@ -34,7 +37,8 @@ export class LoginComponent {
       next: (response) => {
         if (response.token) {
           this.router.navigate([AppRouterDefinitions.ShortUrls]);
-        } else {
+        } 
+        else {
           this.loginError = 'Login failed: no token received';
         }
       },
@@ -43,11 +47,14 @@ export class LoginComponent {
 
         if (Array.isArray(err.error)) {
           this.loginError = err.error.map((e: any) => e.description).join('\n');
-        } else if (typeof err.error === 'string') {
+        } 
+        else if (typeof err.error === 'string') {
           this.loginError = err.error;
-        } else if (err.error?.message) {
+        } 
+        else if (err.error?.message) {
           this.loginError = err.error.message;
-        } else {
+        } 
+        else {
           this.loginError = 'An error occurred during login';
         }
       }

@@ -7,15 +7,8 @@ import { AppRouterDefinitions } from '../../RouterDefinitions/app.router.definit
 @Component({
   selector: 'app-url-redirect',
   standalone: true,
-  template: `<p class="redirect-msg">🔁 Redirecting...</p>`,
-  styles: [`
-    .redirect-msg {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 1.2rem;
-      color: #555;
-    }
-  `]
+  templateUrl: './url-redirect.component.html',
+  styleUrl: './url-redirect.component.css'
 })
 export class UrlRedirectComponent implements OnInit {
   constructor(
@@ -29,6 +22,7 @@ export class UrlRedirectComponent implements OnInit {
 
     if (!code) {
       this.router.navigate([AppRouterDefinitions.ShortUrls]);
+      
       return;
     }
 

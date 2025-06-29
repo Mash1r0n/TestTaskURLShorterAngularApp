@@ -21,7 +21,7 @@ export class AppHeaderComponent {
   dropdownOpen = false;
   public AppRouterDefinitions = AppRouterDefinitions;
 
-  constructor(private auth: AuthService, public router: Router) {}
+  constructor(private readonly auth: AuthService, public router: Router) {}
 
   isAuthenticated(): boolean {
     return this.auth.isAuthenticated();
@@ -29,7 +29,7 @@ export class AppHeaderComponent {
 
   getUserEmail(): string {
     const user = localStorage.getItem('user');
-    console.log('User:', user);
+
     return user ? JSON.parse(user).email : 'User';
   }
 

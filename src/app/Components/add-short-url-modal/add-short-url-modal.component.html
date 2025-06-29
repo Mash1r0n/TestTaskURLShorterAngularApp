@@ -1,6 +1,6 @@
-<div class="modal-backdrop" (click)="onCloseClick()"></div>
+<section class="modal-backdrop" (click)="onCloseClick()"></section>
 
-<div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle" (click)="$event.stopPropagation()">
+<article class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle" (click)="$event.stopPropagation()">
   <h3 id="modalTitle" class="modalTitle">Enter the URL you want to shorten</h3>
 
   <input
@@ -14,4 +14,4 @@
   <div *ngIf="errorMessage" id="errorMsg" class="error-message">{{ errorMessage }}</div>
 
   <button class="btn-add" (click)="onAddClick()">Add</button>
-</div>
+</article>
